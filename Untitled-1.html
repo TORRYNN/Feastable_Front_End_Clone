@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Styled Text</title>
+    <style>
+        :root {
+        --nav_bgcolor: #72E2FF;
+        --fnd_bgcolor: #65DFFF;
+        --max-width: 1385px;
+        --max-width-mobile: 560px;
+       
+        }
+
+        .styled-text {
+            font-family: 'Kanit', sans-serif;
+            font-size: 68.0783px;
+            font-style: italic;
+            font-weight: 900;
+            letter-spacing: 0em;
+            white-space: pre;
+        }
+
+        .outer-stroke {
+            fill: var(--text-fill);
+            stroke: var(--stroke-outer-color);
+            stroke-width: var(--stroke-outer-size);
+        }
+
+        .inner-stroke {
+            fill: var(--text-fill);
+            stroke: var(--stroke-inner-color);
+            stroke-width: var(--stroke-inner-size);
+        }
+
+        @media screen and (max-width: var(--max-width-mobile)) {
+            .styled-text {
+                font-size: calc(var(--height-mobile) * 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg width="100%" height="auto">
+        <!-- Outer Stroke -->
+        <text class="styled-text outer-stroke" x="13.0977" y="54.379">
+            NEW SWEETER & CREAMIER TASTE
+        </text>
+        <!-- Inner Stroke -->
+        <text class="styled-text inner-stroke" x="13.0977" y="54.379">
+            NEW SWEETER & CREAMIER TASTE
+        </text>
+    </svg>
+</body>
+</html>
