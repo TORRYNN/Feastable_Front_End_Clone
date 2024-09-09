@@ -349,9 +349,7 @@ font-size: 2rem;
 
   width: 100%;
   height: 100%;
-  
 
-  
 }
 
 .page1 .page1content{
@@ -472,7 +470,16 @@ font-size: 2rem;
   }
 }
 
+/* Update 9-Sep-2024: I think till page one is complete except the mobile cart page */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.page2{
+
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom,#F13F79,#FF576F);
+}
 
 
 
@@ -488,6 +495,7 @@ font-size: 2rem;
   --breakpoint-lg: 1200px; */
 /* Mobile Screen */
 @media (max-width: 430px) {
+  
   *{
     font-size: 14px;
     margin: 0;
@@ -563,12 +571,18 @@ nav{
 /* Ipad and Tablets */
 @media (min-width:431px) and (max-width: 1279px) {
 
- 
+
+aside .mobileview{
+  display: inline-block;
+}
+ aside .desktopview {
+  display: none;
+}
 aside{
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: .5rem;
   margin: 0;
   gap: .5rem;
@@ -586,8 +600,8 @@ aside a #logo{
 }
 nav{
   width: fit-content;
+  
 }
-
 .productwrap{
   display: none;
 }
