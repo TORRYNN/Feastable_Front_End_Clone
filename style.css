@@ -94,12 +94,12 @@
 
 
    
-    --text-fill: #F2EBE0;
+    --text-fill: #fff;
     --stroke-outer-color: #ff6e34f6;
     --stroke-outermost-color:  #492425;
     --stroke-inner-color: #492425;
-    --stroke-outer-size: 20px;
-    --stroke-outermost-size: 25px;
+    --stroke-outer-size: 14px;
+    --stroke-outermost-size: 20px;
     --stroke-inner-size: 3px;
     --stroke-gradient-size: 10px;
 
@@ -362,7 +362,7 @@ font-size: 2rem;
 
 .page1 .page1content{
   position: relative;
-  width: 100;
+  width: 100%;
   height: 100%;
   box-sizing: border-box; 
   padding: 7rem  2rem  0rem 2rem ;
@@ -406,8 +406,9 @@ font-size: 2rem;
     align-items: center;
     position: relative;
     width: 100%;
-    height: 150px; /* Adjust as needed */
+    height:18vh; /* Adjust as needed */
     overflow: hidden; 
+    
    
     
     
@@ -416,8 +417,9 @@ font-size: 2rem;
 /* Style for both h2 elements */
 .styled-h2 {
     position: absolute;
-    font-size: 6rem;
-    letter-spacing: 0em;
+    font-size: 5rem;
+    letter-spacing: 2px;
+    word-spacing: 10px;
     white-space: nowrap; /* Prevent text from wrapping */
     animation: scrolll 40s linear -15s infinite;    
 }
@@ -450,13 +452,13 @@ font-size: 2rem;
 
 /* Specific styles for outer and inner stroke */
 .outer-stroke {
-    font-size: calc(6rem+2px);
+    font-size: calc(4.5rem+2px);
     color: transparent; 
     -webkit-text-stroke: var(--stroke-outer-size) var(--stroke-outer-color);
      
 }
 .outermost-stroke {
-    font-size: calc(6rem+2px);
+    font-size: calc(4.5rem+2px);
     color: transparent; 
     -webkit-text-stroke: var(--stroke-outermost-size) var(--stroke-outermost-color);
      
@@ -507,11 +509,12 @@ font-size: 2rem;
   margin: 0; /* Remove default margin */
   padding: 0;
   font-size: 19vw;
- line-height: 0;
+  line-height: 0;
   letter-spacing: -10px;
   color: #ffffff;
   opacity: 0.2;
   animation: scrolll 50s linear -15s infinite; 
+  
 }
 
 .page2-inner{
@@ -522,15 +525,15 @@ font-size: 2rem;
 
 
 .page2-container{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  
-  border-radius: 20px;
-  border: 4px solid black;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 20px;
+    border: 4px solid black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   
 }
 
@@ -548,24 +551,21 @@ font-size: 2rem;
 
 .inner-div {
     position: relative;
-     /* Makes each inner div take equal space */
-    width: 100%; /* Makes each inner div 100% of the container's width */
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+   
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
     margin: 0;
-    background-color: violet;
-   min-height: 14vw; 
-    
-    /* Adjust the line-height to vertically center the text */
+    min-height: 14vw; 
+  
 }
 
 
 
 
 .page2-container .center .styled-h2{
-  margin: 0; /* Remove default margin */
-  padding: 0;
+  
   font-size: 18vw;
   line-height: 0;
   letter-spacing: -10px;
@@ -573,6 +573,7 @@ font-size: 2rem;
   color: transparent;
   animation: scrolllr 50s linear -15s infinite; 
   animation-play-state: start;
+ 
 
 
 }
@@ -602,16 +603,14 @@ font-size: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 .page2-container-overlay .inner-divv-top{
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
-  
-  background-color: red;
-  
+  padding: 0 .5rem;
 }
 
 .inner-divv-top img{
@@ -622,11 +621,13 @@ font-size: 2rem;
 
 
 
-.cloud{
+.page2 .cloud{
   position: absolute;
   
   
+  
 }
+
 
 .left{
   top: 50%;
@@ -664,12 +665,10 @@ font-size: 2rem;
 }
 
 .page2-container-overlay .inner-divv-center{
-  width: 73%;
-  
-  background-color: rebeccapurple;
+  width: 60%;
   display: flex; /* 3 columns */
   flex-wrap: wrap;
-  gap: 20px; /* Space between items */
+  gap: 3rem; /* Space between items */
   justify-content: center; 
   align-content: center;/* Center items horizontally */
   margin: 0 auto;
@@ -678,15 +677,17 @@ font-size: 2rem;
 }
 
 .encloser{
-  max-width: 33.3%;
-  background-color: red;
-  padding: 1.5rem;
+  max-width: 30%;
+  
+  
+  
 }
 
 
 .page2-container-overlay .inner-divv-center img{
+  width: 100%;
+  height: 4.5rem;
   
-  height: 4rem;
   background-color: #fff;
   border-radius: 10px;
   border: 4px solid black;
@@ -699,15 +700,11 @@ font-size: 2rem;
   
   justify-content: center;
   align-content: center;
-     /* Center items horizontally */
-  
-  background-color: wheat;
-
     
 }
 
 .page2-container-overlay .inner-divv-bottom h2{
-  font-size: 2.3rem;
+  font-size: 2.6rem;
   color: white;
   -webkit-text-stroke: 2px black;
 
@@ -723,6 +720,175 @@ font-size: 2rem;
   border-radius: 10px;
   cursor: pointer;
   }
+
+/* * Page2 Completes Here */
+
+/**************************************************/
+
+
+
+
+.page3{
+
+  width: 100%;
+  max-height: 100%;
+  height: 200vh;
+  
+  padding: 3rem 2rem ;
+  
+  border-top: 4px solid black;
+  
+}
+
+.page3insider{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.page3wrapper{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image:url(Assets/texture-splotchy.svg);
+  background-size:contain ; 
+  border-radius: 20px;
+  opacity:0.5;
+  z-index: 2;
+  overflow: hidden;
+  border: 4px solid black;
+  
+  
+}
+
+.page3-container{
+  width: 100%;
+  
+  border: 4px solid black;
+  background-color: #CEFC17;
+  border-radius: 20px;
+  padding: 3rem;
+  
+  
+  
+}
+
+
+
+
+
+.page3header{
+  width: fit-content;
+  height: auto;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  z-index: 9;
+  padding-top: 1rem;
+  margin: 0 auto;
+  margin-top: 4rem;
+
+
+  
+}
+
+
+.preswivel{
+  
+  position: absolute;
+  
+  left: 0;
+  top: 0;
+  z-index: 1;
+  
+}
+
+/* we gave animation to this because this will take parent sivel as center for rotating  */
+.swivel-container{
+  
+  height: 3rem;
+  position: absolute;
+  transform-origin: center center;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  animation: sewsaw 2s ease-in-out infinite;
+  
+}
+
+.swivel{
+  
+  
+  position: absolute;
+  font-size: 2.5rem;
+  z-index: 3;
+  line-height: 1;
+
+  
+}
+
+@keyframes sewsaw {
+  0% {
+    transform: rotate(-16deg)
+
+  }
+  50%{
+  transform: rotate(-25deg)
+  }
+  100%{
+    transform: rotate(-15deg)
+  }
+  
+}
+
+
+
+
+/* Specific styles for outer and inner stroke */
+.page3header .outer-stroke {
+    font-size: calc(2.5rem+2px);
+    color: transparent; 
+    -webkit-text-stroke: 8px #ff3a89;
+     
+}
+.page3header .outermost-stroke {
+    font-size: calc(2.5rem+2px);
+    color: transparent; 
+    -webkit-text-stroke: 12px #000000;
+     
+}
+
+.page3header .inner-stroke {
+    font-size: calc(2.5rem+2px);
+    color: var(--text-fill); /* Text fill color */
+    -webkit-text-stroke: 2px var(--stroke-inner-color);
+}
+
+.page3header .socialfeed{
+  position: relative;
+  white-space: nowrap;
+  
+  
+}
+
+.page3header .socialfeed p{
+  color:#ffffff;
+  text-shadow:  1px 1px black, 2px 2px black, 3px 3px black, 4px 4px black, 5px 5px black, 6px 6px black, 7px 7px black, 8px 8px black, 9px 9px black, 10px 10px black;
+  
+}
+.page3header .socialfeed p:first-child{
+  font-size: 126px;
+  background-color: red;
+  line-height: 98px;
+}
+.page3header .socialfeed p:nth-child(2){
+  font-size: 124px;
+  background-color: rebeccapurple;
+  line-height: 98px;
+}
 
 
 
@@ -805,6 +971,86 @@ nav{
   
 }
 
+.page1scroller {
+  height: 6rem;
+}
+
+
+
+.styled-h2 {
+    position: absolute;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    animation: scrolll 40s linear -15s infinite;    
+}
+
+.outer-stroke {
+    font-size: calc(3rem+2px);
+    color: transparent; 
+    -webkit-text-stroke: 8px var(--stroke-outer-color);
+     
+}
+.outermost-stroke {
+    font-size: calc(3rem+2px);
+    color: transparent; 
+    -webkit-text-stroke: 12px var(--stroke-outermost-color);
+     
+}
+
+.inner-stroke {
+    color: var(--text-fill); /* Text fill color */
+    -webkit-text-stroke: var(--stroke-inner-size) var(--stroke-inner-color);
+}
+
+.page2{
+  padding: 2rem 1rem;
+}
+
+.page2-container-overlay{
+  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  
+  padding:3rem 1.8rem;
+}
+
+
+.cloud svg{
+  width: 4rem;
+}
+
+
+
+.left{
+  top: 50%;
+  left: 1px;
+  transform: translateY(-50%);
+  animation: cloud1 5s linear infinite;
+}
+.right{
+  
+  right: 1%;
+  animation: cloud2 5s linear infinite;
+}
+
+.encloser{
+
+  max-width: 45%;
+  height: 4rem;
+  
+}
+
+.page2-container-overlay .inner-divv-center{
+    width: 100%;
+    
+  
+}
+
+
 
 }
 /* Ipad and Tablets */
@@ -871,13 +1117,39 @@ nav{
   
 }
 
+.page1scroller {
+  height: 10rem;
+}
+
 .page2{
   height: 100%;
 }
 
-.page2-container-overlay .center{
-  width: 85%;
+.left{
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+  animation: cloud1 5s linear infinite;
+}
+.right{
+  
+  right: 2%;
+  animation: cloud2 5s linear infinite;
+}
+
+.encloser{
+
+  max-width: 27%;
+  height: 4.5rem;
+  
   
 }
+
+.page2-container-overlay .inner-divv-center{
+    width: 75%;
+    
+  
+}
+
 
 }
