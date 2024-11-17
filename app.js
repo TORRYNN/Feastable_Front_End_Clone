@@ -1,9 +1,12 @@
 let feastHeading = document.querySelector('#feast');
 let productWrap = document.querySelector('.productwrap');
+let body = document.querySelector('body');
+
 
 // Show the productWrap on mouse enter
 feastHeading.addEventListener('mouseenter', () => {
     productWrap.style.top = '0';
+    body.classList.add('no-scroll');
 });
 
 // Hide the productWrap on mouse leave if the mouse is not over the productWrap
@@ -11,6 +14,7 @@ feastHeading.addEventListener('mouseleave', () => {
     setTimeout(() => {
         if (!productWrap.matches(':hover')) {
             productWrap.style.top = '-200%';
+            body.classList.remove('no-scroll');
         }
     }, 200);
 });
@@ -18,11 +22,13 @@ feastHeading.addEventListener('mouseleave', () => {
 // Show the productWrap when mouse enters it
 productWrap.addEventListener('mouseenter', () => {
     productWrap.style.top = '0';
+    body.classList.add('no-scroll');
 });
 
 // Hide the productWrap when mouse leaves it
 productWrap.addEventListener('mouseleave', () => {
     productWrap.style.top = '-200%';
+    body.classList.remove('no-scroll');
 });
 
 
@@ -52,100 +58,67 @@ window.addEventListener("scroll", () => {
 
 })
 
-// const container = document.querySelector('.item-container');
-// const items = document.querySelectorAll('.item-wrapper');
-// let index = 1; // Start from 1 to account for the first cloned item
-// let itemWidth = items[0].offsetWidth;
-// let totalItems = items.length;
-// let isAnimating = false;
 
-// // Clone first and last items for infinite loop effect
-// const firstClone = items[0].cloneNode(true);
-// const lastClone = items[totalItems - 1].cloneNode(true);
+document.addEventListener('DOMContentLoaded', () => {
+    const itemContainer = document.querySelector('.item-container');
+    const items = Array.from(itemContainer.children);
+    const itemWidth = items[0].offsetWidth;
+    const totalItems = items.length;
 
-// container.appendChild(firstClone); // Clone first item to the end
-// container.prepend(lastClone); // Clone last item to the beginning
+    // Clone items to create the illusion of infinite scrolling
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        itemContainer.appendChild(clone);
+    });
 
-// // Adjust the container's initial position to show the first item (accounting for the prepended clone)
-// container.style.transform = `translateX(${-itemWidth}px)`;
+    let currentIndex = 0;
 
-// // Function to move carousel to the left (next)
-// function moveCarouselLeft() {
-//     if (isAnimating) return;
-//     isAnimating = true;
+    // Apply initial styles
+    itemContainer.style.transition = 'transform 0.5s ease-in-out';
 
-//     index++; // Move to the next item
-//     container.style.transition = 'transform 0.5s ease-in-out';
-//     container.style.transform = `translateX(${-index * itemWidth}px)`;
+    // Function to handle right scrolling
+    function scrollRight() {
+        currentIndex++;
+        itemContainer.style.transition = 'transform 0.5s ease-in-out';
+        itemContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-//     // Infinite loop logic
-//     setTimeout(() => {
-//         if (index === totalItems + 1) { // Reached the cloned first item
-//             index = 1; // Reset to the actual first item
-//             container.style.transition = 'none'; // Disable animation
-//             container.style.transform = `translateX(${-itemWidth}px)`; // Jump to the real first item
-//         }
-//         isAnimating = false;
-//     }, 500); // Transition duration must match the CSS transition
-// }
-
-// // Set an interval to move the carousel automatically
-// const autoMove = setInterval(moveCarouselLeft, 3000); // Moves every 3 seconds
-
-// // (Optional) Pause the carousel when hovering over the container
-// container.addEventListener('mouseenter', () => {
-//     clearInterval(autoMove);
-// });
-
-// // (Optional) Resume the carousel when not hovering over the container
-// container.addEventListener('mouseleave', () => {
-//     setInterval(moveCarouselLeft, 3000);
-// });
-
-
-const container = document.querySelector('.item-container');
-const items = document.querySelectorAll('.item-wrapper');
-let index = 1; // Start from 1 to account for the first cloned item
-let itemWidth = items[0].offsetWidth;
-let totalItems = items.length;
-let isAnimating = false;
-
-// Clone first and last items for the infinite loop effect
-const firstClone = items[0].cloneNode(true);
-const lastClone = items[totalItems - 1].cloneNode(true);
-
-container.appendChild(firstClone); // Clone first item to the end
-container.prepend(lastClone); // Clone last item to the beginning
-
-// Adjust the container's initial position to show the first item (accounting for the prepended clone)
-container.style.transform = `translateX(${-itemWidth}px)`;
-
-// Function to move carousel to the left (next)
-function moveCarouselLeft() {
-    if (isAnimating) return;
-    isAnimating = true;
-
-    index++; // Move to the next item
-    container.style.transition = 'transform 0.5s ease-in-out';
-    container.style.transform = `translateX(${-index * itemWidth}px)`;
-
-    // Infinite loop logic
-    setTimeout(() => {
-        if (index === totalItems + 1) { // Reached the cloned first item
-            index = 1; // Reset to the actual first item
-            container.style.transition = 'none'; // Disable animation
-            container.style.transform = `translateX(${-itemWidth}px)`; // Jump to the real first item
+        // Handle the reset for infinite loop
+        if (currentIndex >= totalItems) {
+            setTimeout(() => {
+                itemContainer.style.transition = 'none'; // Temporarily disable transition
+                currentIndex = 0; // Reset to the first item
+                itemContainer.style.transform = `translateX(0)`;
+            }, 500); // Match the transition duration
         }
-        isAnimating = false;
-    }, 500); // Transition duration must match the CSS transition
-}
+    }
 
-// Function to start automatic scrolling
-function startAutoScroll() {
-    setInterval(() => {
-        moveCarouselLeft();
-    }, 3000); // Adjust time to control the speed
-}
+    // Function to handle left scrolling
+    function scrollLeft() {
+        if (currentIndex === 0) {
+            currentIndex = totalItems; // Jump to the last item (cloned set)
+            itemContainer.style.transition = 'none'; // Disable transition
+            itemContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-// Start the automatic scrolling
-startAutoScroll();
+            // Allow smooth transition for the next move
+            setTimeout(() => {
+                itemContainer.style.transition = 'transform 0.5s ease-in-out';
+                currentIndex--;
+                itemContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }, 20); // Minimal delay for browser repaint
+        } else {
+            currentIndex--;
+            itemContainer.style.transition = 'transform 0.5s ease-in-out';
+            itemContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    }
+    // Attach click event to each item to scroll left
+    Array.from(document.querySelectorAll('.item')).forEach(item => {
+        item.addEventListener('click', scrollRight);
+    });
+    // Attach event listeners for navigation
+    document.querySelector('.fa-arrow-right').addEventListener('click', scrollRight);
+    document.querySelector('.fa-arrow-left').addEventListener('click', scrollLeft);
+
+    
+});
+

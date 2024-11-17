@@ -1,0 +1,4 @@
+<svg class="icon icon--rainbow group w-full h-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <use xlink:href="#rainbow" class="w-full h-full group:fill-inherit group:stroke-inherit">
+  </use>
+</svg>
