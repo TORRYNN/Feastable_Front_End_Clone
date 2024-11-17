@@ -206,7 +206,7 @@ nav #flag {
 
 .productwrap {
 	background-image: url("Assets/footer-background.png");
-	position: absolute;
+	position: fixed;
 
 	top: -200%;
 	width: 100%;
@@ -214,6 +214,9 @@ nav #flag {
 	height: 100vh;
 	transition: top 0.3s ease;
 	z-index: 998;
+}
+.no-scroll {
+    overflow: hidden;
 }
 .product-grid {
 	overflow-y: scroll;
@@ -671,11 +674,12 @@ nav #flag {
 	z-index: 2;
 	overflow: hidden;
 	border: 4px solid black;
+	position: relative;
 }
 
 .page3-container {
 	width: 100%;
-
+	position: relative;
 	border: 4px solid black;
 	background-color: #cefc17;
 	border-radius: 20px;
@@ -684,8 +688,7 @@ nav #flag {
 .page3header-outer {
 	width: fit-content;
 	height: auto;
-
-	background-color: green;
+	/* background-color: green; */
 	margin: 0 auto;
 	margin-top: 8rem;
 	margin-bottom: 5rem;
@@ -726,7 +729,7 @@ nav #flag {
 
 .swivel {
 	position: absolute;
-	font-size: 2.5rem;
+	font-size: 5vw;
 	z-index: 3;
 	line-height: 1;
 }
@@ -745,18 +748,18 @@ nav #flag {
 
 /* Specific styles for outer and inner stroke */
 .page3header .outer-stroke {
-	font-size: calc(2.5rem+2px);
+	font-size: calc(5vw+2px);
 	color: transparent;
 	-webkit-text-stroke: 8px #ff3a89;
 }
 .page3header .outermost-stroke {
-	font-size: calc(2.5rem+2px);
+	font-size: calc(5vw+2px);
 	color: transparent;
 	-webkit-text-stroke: 12px #000000;
 }
 
 .page3header .inner-stroke {
-	font-size: calc(2.5rem+2px);
+	font-size: calc(5vw+2px);
 	color: var(--text-fill); /* Text fill color */
 	-webkit-text-stroke: 2px var(--stroke-inner-color);
 }
@@ -790,28 +793,55 @@ nav #flag {
 }
 
 .page3header .socialfeed p:first-child {
-	font-size: 7.9rem;
+	font-size: 6.5vw;
 	/* background-color: red; */
-	line-height: 98px;
+	line-height: 6.5vw;
+	text-align: center;
 }
 .page3header .socialfeed p:nth-child(2) {
-	font-size: 7.75rem;
+	font-size: 6.5vw;
 	/* background-color: rebeccapurple; */
-	line-height: 98px;
+	line-height: 6.5vw;
 	text-indent: -2%;
+	text-align: center;
+}
+
+.floatingpng {
+	/* background-color: red; */
+	width: 100%;
+	height: 100%;
+}
+
+.floatingpng .cloudl {
+	position: absolute;
+	left: -2rem;
+	top: 40%;
+	animation: cloudd3 3s infinite ease-in-out;
+	z-index: 9;
+}
+.floatingpng .cloudr {
+	position: absolute;
+	right: 2rem;
+	top: 20%;
+	animation: cloudd3 3s infinite ease-in-out;
+}
+.floatingpng img {
+	position: absolute;
+	right: 2rem;
+	top: 28%;
+	animation: cloudd3 3s infinite ease-in-out;
+	filter: drop-shadow(0 0 0.1em black);
 }
 
 .carousel-outer {
-	position: relative;
 	width: 100%;
 	height: 570px;
-	background-color: red;
+	/* background-color: red; */
 	overflow: hidden;
-	z-index: 9;
 }
 .item-container {
 	height: fit-content;
-	background-color: orange;
+	/* background-color: orange; */
 	z-index: 9;
 	display: flex;
 	/* gap: 0.5rem; */
@@ -822,7 +852,6 @@ nav #flag {
 .item-wrapper {
 	min-width: 316px;
 	height: 493px;
-	position: relative;
 }
 
 .item {
@@ -830,20 +859,20 @@ nav #flag {
 	height: 493px;
 
 	padding: 0.5rem;
-	background-color: pink;
+	/* background-color: pink; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 
 	gap: 1rem;
-	transition: transform 0.5s, width 0.5s;
+	/* transition: transform 0.5s, width 0.5s; */
 	transform: translateX(-720px);
 }
 .item .thumbnail {
 	position: relative;
 	flex: 1;
 	width: 100%;
-	background-color: red;
+	/* background-color: red; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -854,6 +883,13 @@ nav #flag {
 .thumbnail img {
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 300 / 380;
+}
+.thumbnail video {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 300 / 380;
 	object-fit: cover;
 }
 
@@ -892,7 +928,7 @@ nav #flag {
 .labelbottom .prod-name {
 	width: fit-content;
 	flex: 1;
-	background-color: green;
+	/* background-color: green; */
 
 	font-size: 1.2rem;
 	line-height: 1.3rem;
@@ -900,7 +936,7 @@ nav #flag {
 
 .carousel-btn {
 	width: 100%;
-	background-color: #fff;
+	/* background-color: #fff; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -909,6 +945,7 @@ nav #flag {
 }
 
 .carousel-btn i {
+	cursor: pointer;
 	font-size: 1.2rem;
 	transform: scaleX(1.5);
 }
@@ -1031,7 +1068,7 @@ nav #flag {
 }
 .page4inner .floatlower .cloud:last-child {
 	position: absolute;
-	right: -3rem;
+	right: -10px;
 	width: 8%;
 	height: 80px;
 	top: 10%;
@@ -1051,15 +1088,16 @@ nav #flag {
 
 .page5 {
 	width: 100%;
-	min-height: 100vh;
+	max-height: 100%;
 	padding: 3rem 4.5rem;
-	background: url(Assets/footer-background-clip-path.bundle.min.svg);
+	background-image: url(Assets/footer-background-clip-path.bundle.min.svg);
 	background-size: cover;
+	background-color: rgb(21 204 255);
 }
 
 .page5-inner {
 	width: 100%;
-	height: 100%;
+	min-height: fit-content;
 	background-color: #58dcff;
 	color: #492425;
 	border: 4px solid black;
@@ -1088,9 +1126,9 @@ nav #flag {
 	margin: 0 20px;
 	color: #492425;
 }
-.page5-inner .uprl .column h2 {
-	font-size: 24px;
-	margin-bottom: 0.11rem;
+.page5-inner .uprl .column label {
+	font-size: 1.6rem;
+	margin-bottom: 0.1rem;
 	color: #492425;
 }
 
@@ -1121,8 +1159,8 @@ nav #flag {
 }
 
 .page5-inner .lwrl img {
-	max-width: 100%;
-	max-height: 200px;
+	width: 100%;
+
 	object-fit: cover;
 }
 .page5-inner .lwrl h6 {
@@ -1131,9 +1169,13 @@ nav #flag {
 	font-size: 0.8rem;
 }
 
+input[type="checkbox"] {
+	display: none;
+}
+
 .uprr {
 	grid-area: uprr;
-	padding: 4rem;
+	padding: 3rem;
 	padding-top: 6rem;
 	/* background-color: green; */
 	color: #492425;
@@ -1257,6 +1299,7 @@ nav #flag {
 .lwrr .lwrr-links {
 	text-align: center;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	gap: 0.8rem;
@@ -1265,6 +1308,7 @@ nav #flag {
 .lwrr .lwrr-links a {
 	font-size: 12px;
 	color: black;
+	text-decoration: none;
 }
 .lwrr .lwrr-links a:hover {
 	text-decoration: underline;
@@ -1275,10 +1319,7 @@ nav #flag {
 	margin-bottom: 1rem;
 }
 
-/* --breakpoint_xs: 428px;
-  --breakpoint-sm: 768px;
-  --breakpoint-md: 992px;
-  --breakpoint-lg: 1200px; */
+
 /* Mobile Screen */
 @media (max-width: 430px) {
 	* {
@@ -1317,13 +1358,11 @@ nav #flag {
 	}
 	nav {
 		width: fit-content;
-		background-color: red;
+		
 	}
 
 	.page1 .page1content {
-		position: relative;
-		width: 100vw;
-		height: 100%;
+		
 		box-sizing: border-box;
 		padding: 6rem 1rem;
 		padding-bottom: 0;
@@ -1410,6 +1449,84 @@ nav #flag {
 
 	.page2-container-overlay .inner-divv-center {
 		width: 100%;
+	}
+
+	.page3header .socialfeed p:first-child {
+		font-size: 10vw;
+		/* background-color: red; */
+		line-height: 10vw;
+		
+	}
+	.page3header .socialfeed p:nth-child(2) {
+		font-size: 10vw;
+		/* background-color: rebeccapurple; */
+		line-height: 10vw;
+		
+	}
+
+	.item {
+	
+	transform: translateX(-280px);
+}
+	.page5-inner {
+		display: flex;
+		flex-direction: column;
+		/* grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0.9fr 0.9fr 0.2fr;
+	grid-template-areas:
+		" uprl uprr"
+		" lwrl uprr"
+		" lwrl lwrr"; */
+		overflow: hidden;
+	}
+
+	.page5 {
+		padding: 2rem 1rem;
+	}
+	.page5-inner {
+		padding: 0;
+	}
+	.page5-inner .lwrl img {
+		width: 60%;
+		margin: 0 auto;
+		object-fit: cover;
+	}
+
+	.uprl {
+		display: flex;
+		flex-direction: column;
+		padding: 0 !important;
+	}
+
+	.page5-inner .uprl .column {
+		border: 1px solid black;
+		padding: 1rem;
+		margin: 0;
+	}
+
+	/* Initially hide the lists */
+	.column ul {
+		display: none;
+	}
+	.column ul li {
+		padding-left: 1rem;
+	}
+
+	/* Show the list when checkbox is checked */
+	input[type="checkbox"]:checked + label + ul {
+		display: block;
+	}
+
+	/* Add an arrow icon for dropdown indicator */
+	.menu-title::after {
+		content: "\25BC"; /* Down arrow */
+		float: right;
+		font-size: 14px;
+	}
+
+	/* Change arrow direction when open */
+	input[type="checkbox"]:checked + label::after {
+		content: "\25B2"; /* Up arrow */
 	}
 }
 /* Ipad and Tablets */
@@ -1498,5 +1615,16 @@ nav #flag {
 
 	.page2-container-overlay .inner-divv-center {
 		width: 75%;
+	}
+
+	.page5-inner {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+	.page5-inner .lwrl img {
+		width: 40%;
+		margin: 0 auto;
+		object-fit: cover;
 	}
 }
