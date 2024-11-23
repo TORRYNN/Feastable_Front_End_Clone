@@ -1,31 +1,31 @@
 .kanit-black {
-    font-family: "Kanit", sans-serif;
-    font-weight: 900;
-    font-style: normal;
+	font-family: "Kanit", sans-serif;
+	font-weight: 900;
+	font-style: normal;
 }
 
 .kanit-extrabold {
-    font-family: "Kanit", sans-serif;
-    font-weight: 800;
-    font-style: normal;
+	font-family: "Kanit", sans-serif;
+	font-weight: 800;
+	font-style: normal;
 }
 
 .kanit-bold-italic {
-    font-family: "Kanit", sans-serif;
-    font-weight: 700;
-    font-style: italic;
+	font-family: "Kanit", sans-serif;
+	font-weight: 700;
+	font-style: italic;
 }
 
 .kanit-extrabold-italic {
-    font-family: "Kanit", sans-serif;
-    font-weight: 800;
-    font-style: italic;
+	font-family: "Kanit", sans-serif;
+	font-weight: 800;
+	font-style: italic;
 }
 
 .kanit-bold {
-    font-family: "Kanit", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+	font-family: "Kanit", sans-serif;
+	font-weight: 700;
+	font-style: normal;
 }
 
 :root {
@@ -156,7 +156,7 @@ nav #flag {
 	z-index: 998;
 }
 .no-scroll {
-    overflow: hidden;
+	overflow: hidden;
 }
 .product-grid {
 	overflow-y: scroll;
@@ -593,7 +593,6 @@ nav #flag {
 	height: fit-content;
 
 	padding: 4rem 2rem;
-
 	border-top: 4px solid black;
 }
 
@@ -602,27 +601,45 @@ nav #flag {
 	height: 100%;
 	display: flex;
 	position: relative;
+	background-color: #cefc17;
+	border-radius: 25px;
+	
 }
-.page3wrapper {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background-image: url(Assets/texture-splotchy.svg);
-	background-size: contain;
-	border-radius: 20px;
-	opacity: 0.3;
-	z-index: 2;
-	overflow: hidden;
-	border: 4px solid black;
-	position: relative;
+.page3insider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    background-color: #cefc17;  /* Green background */
+    border-radius: 25px;
+    
 }
+
+.page3insider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Assets/texture-splotchy.svg');  /* Texture image */
+    background-size: contain;  /* Ensures the texture fits without stretching */
+    
+    background-position: center;  /* Centers the texture */
+    opacity: 0.5;  /* Reduces opacity of the texture image */
+    z-index: 1;  /* Ensures it stays below other content */
+}
+
+
+
 
 .page3-container {
 	width: 100%;
 	position: relative;
 	border: 4px solid black;
-	background-color: #cefc17;
+	/* background-color: #cefc17; */
 	border-radius: 20px;
+	z-index: 3;
 }
 
 .page3header-outer {
@@ -669,7 +686,7 @@ nav #flag {
 
 .swivel {
 	position: absolute;
-	font-size: 5vw;
+	font-size: 4vw;
 	z-index: 3;
 	line-height: 1;
 }
@@ -688,18 +705,18 @@ nav #flag {
 
 /* Specific styles for outer and inner stroke */
 .page3header .outer-stroke {
-	font-size: calc(5vw+2px);
+	font-size: calc(4vw+2px);
 	color: transparent;
 	-webkit-text-stroke: 8px #ff3a89;
 }
 .page3header .outermost-stroke {
-	font-size: calc(5vw+2px);
+	font-size: calc(4vw+2px);
 	color: transparent;
 	-webkit-text-stroke: 12px #000000;
 }
 
 .page3header .inner-stroke {
-	font-size: calc(5vw+2px);
+	font-size: calc(4vw+2px);
 	color: var(--text-fill); /* Text fill color */
 	-webkit-text-stroke: 2px var(--stroke-inner-color);
 }
@@ -779,6 +796,7 @@ nav #flag {
 	/* background-color: red; */
 	overflow: hidden;
 }
+
 .item-container {
 	height: fit-content;
 	/* background-color: orange; */
@@ -787,6 +805,9 @@ nav #flag {
 	/* gap: 0.5rem; */
 	transition: transform 0.5s, width 0.5s;
 	/* overflow: hidden; */
+	
+    align-items: center;
+	
 }
 
 .item-wrapper {
@@ -795,7 +816,7 @@ nav #flag {
 }
 
 .item {
-	min-width: 316px;
+	width: 316px;
 	height: 493px;
 
 	padding: 0.5rem;
@@ -803,11 +824,15 @@ nav #flag {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
+	margin: 0 auto; /* Center the items within their space */
 	gap: 1rem;
 	/* transition: transform 0.5s, width 0.5s; */
-	transform: translateX(-720px);
+	transform: translateX(-158px);
 }
+
+
+
+
 .item .thumbnail {
 	position: relative;
 	flex: 1;
@@ -1259,7 +1284,6 @@ input[type="checkbox"] {
 	margin-bottom: 1rem;
 }
 
-
 /* Mobile Screen */
 @media (max-width: 430px) {
 	* {
@@ -1298,11 +1322,9 @@ input[type="checkbox"] {
 	}
 	nav {
 		width: fit-content;
-		
 	}
 
 	.page1 .page1content {
-		
 		box-sizing: border-box;
 		padding: 6rem 1rem;
 		padding-bottom: 0;
@@ -1367,8 +1389,9 @@ input[type="checkbox"] {
 		padding: 3rem 1.8rem;
 	}
 
+
 	.cloud svg {
-		width: 4rem;
+		width: 3rem;
 	}
 
 	.left {
@@ -1390,24 +1413,54 @@ input[type="checkbox"] {
 	.page2-container-overlay .inner-divv-center {
 		width: 100%;
 	}
+	.swivel {
+		font-size: 4vw;
+	}
+	.page3header .outer-stroke {
+		font-size: calc(4vw+2px);
+		-webkit-text-stroke: 4px #ff3a89;
+	}
+	.page3header .outermost-stroke {
+		font-size: calc(4vw+2px);
+		-webkit-text-stroke: 6px #000000;
+	}
+.page3header .inner-stroke {
+		font-size: calc(4vw+2px);
+		-webkit-text-stroke: 1.2px var(--stroke-inner-color);
+	}
 
+	
+  .page3 .cloudl{
+	display: none;
+  }
+
+.item-wrapper {
+	min-width: 277px;
+	height: 493px;
+}
+
+.item {
+	width: 275px;
+	height: 493px;
+	gap: .5rem;
+	
+	transform: translateX(0px);
+}
+
+
+	
 	.page3header .socialfeed p:first-child {
-		font-size: 10vw;
+		font-size: 9vw;
 		/* background-color: red; */
-		line-height: 10vw;
-		
+		line-height: 9vw;
 	}
 	.page3header .socialfeed p:nth-child(2) {
-		font-size: 10vw;
+		font-size: 9vw;
 		/* background-color: rebeccapurple; */
-		line-height: 10vw;
-		
+		line-height: 9vw;
 	}
-
-	.item {
 	
-	transform: translateX(-280px);
-}
+
 	.page5-inner {
 		display: flex;
 		flex-direction: column;
