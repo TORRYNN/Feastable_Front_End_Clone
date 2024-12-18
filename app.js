@@ -167,3 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// For Lazing Loading
+
